@@ -13,6 +13,8 @@ class Demo extends Component {
       isDisabled: false,
       hasErrored: false,
       isInputNum: false,
+      inputWidth:'3',
+      inputHeight:'3'
     };
   }
 
@@ -35,7 +37,7 @@ class Demo extends Component {
   };
 
   render() {
-    const { otp, numInputs, separator, isDisabled, hasErrored, isInputNum } = this.state;
+    const { otp, numInputs, separator, isDisabled, hasErrored, isInputNum, inputWidth, inputHeight } = this.state;
 
     return (
       <div className="container">
@@ -66,6 +68,32 @@ class Demo extends Component {
                 name="separator"
                 type="text"
                 value={separator}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div className="side-bar__segment">
+            <label htmlFor="inputWidth">
+              inputWidth (rem)
+              <input
+                id="inputWidth"
+                maxLength={2}
+                name="inputWidth"
+                type="text"
+                value={inputWidth}
+                onChange={this.handleChange}
+              />
+            </label>
+          </div>
+          <div className="side-bar__segment">
+            <label htmlFor="inputWidth">
+              inputHeight (rem)
+              <input
+                id="inputHeight"
+                maxLength={2}
+                name="inputHeight"
+                type="text"
+                value={inputHeight}
                 onChange={this.handleChange}
               />
             </label>
@@ -119,8 +147,8 @@ class Demo extends Component {
               <div className="margin-top--small">
                 <OtpInput
                   inputStyle={{
-                    width: '3rem',
-                    height: '3rem',
+                    width: {inputWidth}.inputWidth+'rem',
+                    height: {inputHeight}.inputHeight+'rem',
                     margin: '0 1rem',
                     fontSize: '2rem',
                     borderRadius: 4,
