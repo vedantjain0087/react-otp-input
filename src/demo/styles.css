@@ -38,7 +38,7 @@ a {
 
 .side-bar__segment--bottom {
   font-weight: bold;
-  position: absolute;
+  /* position: absolute; */
   bottom: 2rem;
 }
 
